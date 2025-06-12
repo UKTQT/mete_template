@@ -1,1 +1,0 @@
-// Yardımcı fonksiyon testi
