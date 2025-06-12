@@ -1,0 +1,44 @@
+{
+    "app": {
+        "title": "Mete Template",
+        "error": "Hata",
+        "success": "Başarılı",
+        "loading": "Yükleniyor...",
+        "retry": "Tekrar Dene",
+        "cancel": "İptal",
+        "save": "Kaydet",
+        "delete": "Sil",
+        "edit": "Düzenle",
+        "logout": "Çıkış Yap"
+    },
+    "auth": {
+        "login": "Giriş Yap",
+        "register": "Kayıt Ol",
+        "email": "E-posta",
+        "password": "Şifre",
+        "confirm_password": "Şifre Tekrar",
+        "forgot_password": "Şifremi Unuttum",
+        "invalid_email": "Geçersiz e-posta adresi",
+        "invalid_password": "Şifre en az 6 karakter olmalıdır",
+        "passwords_dont_match": "Şifreler eşleşmiyor",
+        "login_success": "Başarıyla giriş yapıldı",
+        "register_success": "Başarıyla kayıt olundu"
+    },
+    "user": {
+        "profile": "Profil",
+        "name": "Ad Soyad",
+        "phone": "Telefon",
+        "update_profile": "Profili Güncelle",
+        "profile_updated": "Profil başarıyla güncellendi",
+        "update_error": "Profil güncellenirken bir hata oluştu"
+    },
+    "settings": {
+        "title": "Ayarlar",
+        "language": "Dil",
+        "theme": "Tema",
+        "dark_mode": "Karanlık Mod",
+        "notifications": "Bildirimler",
+        "about": "Hakkında",
+        "version": "Versiyon"
+    }
+}

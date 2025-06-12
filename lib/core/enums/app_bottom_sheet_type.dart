@@ -1,0 +1,4 @@
+enum AppBottomSheetType {
+  modal,
+  draggable,
+}
