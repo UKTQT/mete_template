@@ -85,11 +85,11 @@ flutter:
   assets:
     - .env
     - assets/translations/
-    - assets/images/
-    - assets/animations/
-    - assets/icons/
-    - assets/placeholders/
-    - assets/sounds/
-    - assets/videos/
-    - assets/configs/
-    - assets/fonts/
+    # - assets/images/
+    # - assets/animations/
+    # - assets/icons/
+    # - assets/placeholders/
+    # - assets/sounds/
+    # - assets/videos/
+    # - assets/configs/
+    # - assets/fonts/
