@@ -127,7 +127,7 @@ class NotificationManager {
   /// [body]: Bildirim mesaj içeriği.
   /// [scheduledDate]: Bildirimin gösterileceği tarih ve saat.
   /// [payload]: (Opsiyonel) Bildirime özel veri, tıklanınca kullanılabilir.
-  Future<void> scheduleSystemNotification({
+  /* Future<void> scheduleSystemNotification({
     required int id,
     required String title,
     required String body,
@@ -148,7 +148,7 @@ class NotificationManager {
     } catch (e, stackTrace) {
       _logger.error('🔴 Hata: ${e.toString()}\nStackTrace: $stackTrace');
     }
-  }
+  } */
 
   /// Belirli aralıklarla tekrarlayan sistem bildirimi (local notification) gösterir.
   ///
@@ -157,7 +157,7 @@ class NotificationManager {
   /// [body]: Bildirim mesaj içeriği.
   /// [repeatInterval]: Bildirimin tekrar aralığı (saatlik, günlük vb.).
   /// [payload]: (Opsiyonel) Bildirime özel veri, tıklanınca kullanılabilir.
-  Future<void> showPeriodicSystemNotification({
+  /* Future<void> showPeriodicSystemNotification({
     required int id,
     required String title,
     required String body,
@@ -177,7 +177,7 @@ class NotificationManager {
     } catch (e, stackTrace) {
       _logger.error('🔴 Hata: ${e.toString()}\nStackTrace: $stackTrace');
     }
-  }
+  } */
 
   Future<void> cancelNotification(int id) async {
     try {

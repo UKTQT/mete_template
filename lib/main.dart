@@ -13,10 +13,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
-    LoggerManager.instance.debug('Uygulama ayağa kaldırılıyor');
-
     /// Uygulamanın başlatılması için gerekli olan tüm işlemleri gerçekleştirir.
     await AppInitializerManager.instance.initialize();
+
+    LoggerManager.instance.debug('Uygulama ayağa kaldırılıyor');
 
     runApp(const AppEntryPoint());
   } catch (e, stackTrace) {
@@ -30,20 +30,32 @@ class AppEntryPoint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: AppInitializerManager.instance.blocProviders,
-      child: EasyLocalization(
-        supportedLocales: LocalizationManager.instance.supportedLocales,
-        path: LocalizationManager.instance.localePath,
-        fallbackLocale: LocalizationManager.instance.fallbackLocale,
-        useOnlyLangCode: true,
-        useFallbackTranslations: true,
-        useFallbackTranslationsForEmptyResources: true,
-        ignorePluralRules: true,
-        saveLocale: true,
-        child: const MainApp(),
-      ),
-    );
+    return AppInitializerManager.instance.blocProviders.isNotEmpty
+        ? MultiBlocProvider(
+            providers: AppInitializerManager.instance.blocProviders,
+            child: EasyLocalization(
+              supportedLocales: LocalizationManager.instance.supportedLocales,
+              path: LocalizationManager.instance.localePath,
+              fallbackLocale: LocalizationManager.instance.fallbackLocale,
+              useOnlyLangCode: true,
+              useFallbackTranslations: true,
+              useFallbackTranslationsForEmptyResources: true,
+              ignorePluralRules: true,
+              saveLocale: true,
+              child: const MainApp(),
+            ),
+          )
+        : EasyLocalization(
+            supportedLocales: LocalizationManager.instance.supportedLocales,
+            path: LocalizationManager.instance.localePath,
+            fallbackLocale: LocalizationManager.instance.fallbackLocale,
+            useOnlyLangCode: true,
+            useFallbackTranslations: true,
+            useFallbackTranslationsForEmptyResources: true,
+            ignorePluralRules: true,
+            saveLocale: true,
+            child: const MainApp(),
+          );
   }
 }
 
@@ -52,11 +64,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoggerManager.instance.error('MaterialApp çiziliyor...');
+    LoggerManager.instance.debug('MaterialApp çiziliyor...');
 
     return MaterialApp.router(
-      title: EnvironmentManager.appName,
-      debugShowCheckedModeBanner: EnvironmentManager.debugShowCheckedBanner,
+      title: EnvironmentManager.instance.appName,
+      debugShowCheckedModeBanner: EnvironmentManager.instance.debugShowCheckedBanner,
       themeMode: ThemeMode.system,
       theme: ThemeConstants.instance.systemThemeMap["light"],
       darkTheme: ThemeConstants.instance.systemThemeMap["dark"],

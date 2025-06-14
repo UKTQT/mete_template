@@ -41,23 +41,18 @@ abstract class BaseScreenState<T extends BaseScreen> extends State<T> with Widge
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
-    debugPrint('App Lifecycle State Changed: $state');
   }
 
   @override
-  void didChangeLocales(List<Locale>? locale) {
-    debugPrint('Locale changed: $locale');
-  }
+  void didChangeLocales(List<Locale>? locale) {}
 
   @override
   void didChangeMetrics() {
     super.didChangeMetrics();
-    debugPrint('Screen metrics changed');
   }
 
   @override
   void didChangePlatformBrightness() {
     super.didChangePlatformBrightness();
-    debugPrint('Platform brightness changed');
   }
 }

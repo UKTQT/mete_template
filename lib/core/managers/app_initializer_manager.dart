@@ -10,25 +10,25 @@ import 'package:path_provider/path_provider.dart';
 class AppInitializerManager {
   static final AppInitializerManager instance = AppInitializerManager();
 
-  final LoggerManager _logger = LoggerManager.instance;
+  LoggerManager? _logger;
 
-  AppInitializerManager() {
-    _logger.debug('AppInitializerManager başlatıldı');
-  }
+  AppInitializerManager() {}
 
   /// Uygulamanın başlatılması için gerekli olan tüm işlemleri gerçekleştirir.
   Future<void> initialize() async {
-    await _envLocalization(); // Ortam değişkenlerini yükler.
+    await _initEnv(); // Ortam değişkenlerini yükler.
     await _initLocalization(); // Dil ayarlarını yapılandırır.
     await _initDatabase(); // Veritabanını başlatır.
     await _configureSystemUI(); // Sistem arayüzünü düzenler.
     _initCrashlyticsOrBugTracking(); // Hata yönetimini yapılandırır.
 
-    _logger.debug('Başlatma tamamlandı');
+    _logger = LoggerManager.instance;
+
+    _logger!.debug('AppInitializerManager başlatıldı');
   }
 
   /// `.env` dosyasını yükleyerek ortam değişkenlerini erişilebilir hale getirir.
-  Future<void> _envLocalization() async {
+  Future<void> _initEnv() async {
     await dotenv.load(fileName: ".env");
   }
 
@@ -47,7 +47,7 @@ class AppInitializerManager {
   void _initCrashlyticsOrBugTracking() {
     FlutterError.onError = (FlutterErrorDetails details) {
       FlutterError.presentError(details);
-      _logger.error('🔴 Hata: ${details.exceptionAsString()}');
+      _logger!.error('🔴 Hata: ${details.exceptionAsString()}');
     };
   }
 

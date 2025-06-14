@@ -1,3 +1,5 @@
+import 'package:com_nectrom_metetemplate/core/base/base_scaffold.dart';
+import 'package:com_nectrom_metetemplate/core/widgets/text/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExampleScreen extends StatelessWidget {
@@ -5,6 +7,19 @@ class ExampleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return BaseScaffold(
+      appBar: AppBar(
+        title: TextWidget(
+          title: "Example Screen",
+        ),
+      ),
+      body: Column(
+        children: [
+          TextWidget(
+            title: "Example Screen",
+          ),
+        ],
+      ),
+    );
   }
 }
