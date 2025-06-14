@@ -6,7 +6,7 @@ class BaseService {
   static final BaseService instance = BaseService();
 
   final Dio dioClient = Dio()..interceptors.add(GeneralInterceptor());
-  final String baseUrl = EnvironmentManager.serverIp;
+  final String baseUrl = EnvironmentManager.instance.serverIp;
 
   Future<T?> get<T>({
     required String path,

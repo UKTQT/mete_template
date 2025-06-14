@@ -1,10 +1,16 @@
 import 'package:com_nectrom_metetemplate/core/constants/routes_constants.dart';
+import 'package:com_nectrom_metetemplate/core/managers/logger_manager.dart';
 import 'package:com_nectrom_metetemplate/core/utils/app_utils.dart';
+import 'package:com_nectrom_metetemplate/features/example/example_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
   static final Routes instance = Routes();
+
+  Routes() {
+    LoggerManager.instance.debug('Routes başlatıldı');
+  }
 
   final GoRouter router = GoRouter(
     initialLocation: RoutesConstants.defaultScreen,
@@ -12,6 +18,7 @@ class Routes {
     debugLogDiagnostics: true,
     // errorBuilder: (context, state) => const ErrorScreen(),
     routes: [
+      _generateStandardGoRoute(RoutesConstants.defaultScreen, const ExampleScreen()),
       // _generateStandardGoRoute(RoutesConstants.defaultScreen, const SplashScreen()),
       // _generateStandardGoRoute(RoutesConstants.leaveScreen, const LeaveScreen()),
       // _generateStandardGoRoute(RoutesConstants.errorScreen, const ErrorScreen()),

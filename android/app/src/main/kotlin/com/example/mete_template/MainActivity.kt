@@ -1,4 +1,4 @@
-package com.example.mete_template
+package com.nectrom.metetemplate
 
 import io.flutter.embedding.android.FlutterActivity
 
